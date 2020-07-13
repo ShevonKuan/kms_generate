@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>KMS 客户端安装方法</title>
+    <link rel="stylesheet" href="css/mdui.css" />
+    <link rel="stylesheet" href="css/container.css" />
+    <link rel="stylesheet" href="js/highlight-9.12.0/styles/googlecode.css">
+    <link rel="stylesheet" href="css/ionicons.css" />
+    <link rel="stylesheet" href="css/antd.min.css" />
+    <script src="js/highlight-9.12.0/highlight.pack.js"></script>
+    <script src="js/canvas-effect.js" async="async"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        @font-face {
+            font-family: powerline;
+            src: url("fonts/Powerline.ttf");
+        }
+
+        .sxs-lookup {
+            display: none;
+        }
+
+        .visually-hidden {
+            display: none;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        var a_idx = 0;
+        jQuery(document).ready(function ($) {
+            $("body").click(function (e) {
+                var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善", "坚决维护祖国统一", "坚决拥护党的领导", "坚持用中国特色社会主义理论体系武装头脑", "坚持自觉服务改革发展大局", "坚持解决好作风建设中存在的突出问题", "尊法守纪", "待人友善", "其其最叻", "杰杰最叻");
+                var $i = $("<span/>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                    y = e.pageY;
+                $i.css({
+                    "z-index": 100000000,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "#45a9a9"
+                });
+                $("body").append($i);
+                $i.animate({
+                    "top": y - 180,
+                    "opacity": 0
+                },
+                    1500,
+                    function () {
+                        $i.remove();
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body class="mdui-theme-primary-teal mdui-theme-accent-red" background="bg.jpg"
+    style="background-repeat:no-repeat;background-size:cover;background-attachment: fixed;background-position: center">
+    <!--<div id="particles-js" style="position:relative; z-index: -1"></div> -->
+
+
+    <div class="mdui-toolbar mdui-color-theme mdui-hoverable mdui-shadow-5" style="opacity: 0.7">
+        <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '更多功能开发中,敬请期待...', position: 'right'}"><i
+                class="mdui-icon material-icons">menu</i></a>
+        <span class="mdui-typo-title">KMS 客户端安装方法</span>
+        <div class="mdui-toolbar-spacer"></div>
+
+    </div>
+    <div class="container">
+        <div class="mdui-container"><div class="mdui-typo">
+            <br>
+            <h1 class="mdui-text-color-theme">KMS 客户端安装方法</h1><br>
+
+            <h3 class='mdui-text-color-theme'>本文内容</h3>
+            <ol>
+                <li><a href="#windows-server-semi-annual-channel-versions">Windows Server 半年频道版本</a></li>
+                <li><a href="#windows-server-ltscltsb-versions">Windows Server LTSC/LTSB 版本</a></li>
+                <li><a href="#windows-10-all-supported-semi-annual-channel-versions">Windows 10，所有支持的半年频道版本</a></li>
+                <li><a href="#windows-10-ltscltsb-versions">Windows 10 LTSC/LTSB 版本</a></li>
+                <li><a href="#earlier-versions-of-windows-server">早期版本的 Windows Server</a></li>
+                <li><a href="#earlier-versions-of-windows">早期版本的 Windows</a></li>
+            </ol>
+            </nav>
+
+            <!-- <content> -->
+            <div class="mdui-typo">
+                <blockquote style="margin: 0em;">
+                    <p><span data-ttu-id="69535-104">适用于：Windows Server 2019、Windows Server 半年频道、Windows Server
+                            2016、Windows
+                            10</span><span class="sxs-lookup"><span data-stu-id="69535-104">Applies to: Windows Server
+                                2019,
+                                Windows Server Semi-Annual Channel, Windows Server 2016, Windows 10</span></span></p>
+                </blockquote>
+            </div>
+            <p><span data-ttu-id="69535-105">默认情况下，运行批量许可版本的 Windows Server、Windows 10、Windows 8.1、Windows Server 2012
+                    R2、Windows 8、Windows Server 2012、Windows 7、Windows Server 2008 R2、Windows Vista 和 Windows Server
+                    2008 的计算机为无需额外配置的 KMS 客户端。</p>
+            <div
+                style="border: 0px solid;border-color: rgba(0, 0, 0, .12);border-radius: 5px;background-color: rgba(255, 255, 255, 0.7);padding: 15px;font-weight: bold;margin-top: 1em;margin-bottom: 1em;line-height:2em ;">
+                <div class="mdui-typo mdui-text-color-theme-accent"> @备注:</div>
+                <span>在以下各表中，“LTSC”代表“长期服务频道”，而“LTSB”是指“长期服务分支”。</span>
+            </div>
+            <p><span data-ttu-id="69535-107"><strong>若要使用此处列出的密钥（它们是 GVLK），你首先知道或拥有一台 KMS 主机。</strong></span>
+            </p>
+            <p><span data-ttu-id="69535-109">如果是将计算机从 KMS 主机、MAK 或零售版 Windows 转换为 KMS 客户端，则从下表中选择相应的安装程序密钥 (GVLK)
+                    进行安装。</span><span class="sxs-lookup"><span data-stu-id="69535-109">If you are converting a computer
+                        from a KMS host, MAK, or retail edition of Windows to a KMS client, install the applicable setup
+                        key (GVLK) from the following tables.</span></span> <span
+                    data-ttu-id="69535-110">若要安装客户端安装程序密钥，请打开客户端上的管理命令提示符，键入 <code >   slmgr /ipk &lt;setup key&gt;</code>  ，然后按 Enter
+                    。</span><span class="sxs-lookup"><span data-stu-id="69535-110">To install a client setup key, open
+                        an administrative command prompt on the client, type <strong>slmgr /ipk &lt;setup
+                            key&gt;</strong> and then press <strong>Enter</strong>.</span></span></p>
+            <blockquote style="margin: 0em;">
+                <p><span data-ttu-id="69535-120">如果你运行的是 Windows Server 2008 R2 或 Windows 7，则请留意一项更新，该更新支持将这些计算机用作
+                        Windows 10 客户端的 KMS 主机。</span><span class="sxs-lookup"><span data-stu-id="69535-120">If you are
+                            running Windows Server 2008 R2 or Windows 7, be on the lookout for an update to support
+                            using those as KMS hosts for Windows 10 clients.</span></span></p>
+            </blockquote>
+              <hr><h2 id="windows-server-semi-annual-channel-versions" class="mdui-text-color-theme"><a
+                    class="anchor-link docon docon-link" href="#windows-server-semi-annual-channel-versions"
+                    aria-labelledby="windows-server-semi-annual-channel-versions"></a><span
+                    data-ttu-id="69535-121">Windows Server 半年频道版本</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-121">Windows Server Semi-Annual Channel versions</span></span></h2>
+            <h3 id="windows-server-version-1909-version-1903-and-version-1809" class="mdui-text-color-theme"><a
+                    class="anchor-link docon docon-link"
+                    href="#windows-server-version-1909-version-1903-and-version-1809"
+                    aria-labelledby="windows-server-version-1909-version-1903-and-version-1809"></a><span
+                    data-ttu-id="69535-122">Windows Server 版本 1909、版本1903 和版本 1809</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-122">Windows Server, version 1909, version 1903, and version
+                        1809</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 版本 1909、版本1903 和版本 1809</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-123">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-123">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-124">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-124">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-125">Windows Server
+                                    Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-125">Windows
+                                        Server Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-126">6NMRW-2C8FM-D24W7-TQWMY-CWH2D</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-126">6NMRW-2C8FM-D24W7-TQWMY-CWH2D</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-127">Windows Server
+                                    Standard</span><span class="sxs-lookup"><span data-stu-id="69535-127">Windows Server
+                                        Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-128">N2KJX-J94YW-TQVFB-DG9YT-724CC</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-128">N2KJX-J94YW-TQVFB-DG9YT-724CC</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+              <hr><h2 id="windows-server-ltscltsb-versions" class="mdui-text-color-theme"><a
+                    class="anchor-link docon docon-link" href="#windows-server-ltscltsb-versions"
+                    aria-labelledby="windows-server-ltscltsb-versions"></a><span data-ttu-id="69535-129">Windows Server
+                    LTSC/LTSB 版本</span><span class="sxs-lookup"><span data-stu-id="69535-129">Windows Server LTSC/LTSB
+                        versions</span></span></h2>
+            <h3 id="windows-server-2019" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-2019" aria-labelledby="windows-server-2019"></a><span
+                    data-ttu-id="69535-130">Windows Server 2019</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-130">Windows Server 2019</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 2019</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-131">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-131">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-132">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-132">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-133">Windows Server
+                                    2019 Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-133">Windows
+                                        Server 2019 Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-134">WMDGN-G9PQG-XVVXX-R3X43-63DFG</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-134">WMDGN-G9PQG-XVVXX-R3X43-63DFG</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-135">Windows Server
+                                    2019 Standard</span><span class="sxs-lookup"><span data-stu-id="69535-135">Windows
+                                        Server 2019 Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-136">N69G4-B89J2-4G8F4-WWYCC-J464C</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-136">N69G4-B89J2-4G8F4-WWYCC-J464C</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-137">Windows Server
+                                    2019 Essentials</span><span class="sxs-lookup"><span data-stu-id="69535-137">Windows
+                                        Server 2019 Essentials</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-138">WVDHN-86M7X-466P6-VHXV7-YY726</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-138">WVDHN-86M7X-466P6-VHXV7-YY726</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-server-2016" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-2016" aria-labelledby="windows-server-2016"></a><span
+                    data-ttu-id="69535-139">Windows Server 2016</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-139">Windows Server 2016</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 2016</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-140">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-140">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-141">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-141">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-142">Windows Server
+                                    2016 Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-142">Windows
+                                        Server 2016 Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-143">CB7KF-BWN84-R7R2Y-793K2-8XDDG</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-143">CB7KF-BWN84-R7R2Y-793K2-8XDDG</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-144">Windows Server
+                                    2016 Standard</span><span class="sxs-lookup"><span data-stu-id="69535-144">Windows
+                                        Server 2016 Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-145">WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-145">WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-146">Windows Server
+                                    2016 Essentials</span><span class="sxs-lookup"><span data-stu-id="69535-146">Windows
+                                        Server 2016 Essentials</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-147">JCKRF-N37P4-C2D82-9YXRT-4M63B</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-147">JCKRF-N37P4-C2D82-9YXRT-4M63B</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+              <hr><h2 id="windows-10-all-supported-semi-annual-channel-versions" class="mdui-text-color-theme"><a
+                    class="anchor-link docon docon-link" href="#windows-10-all-supported-semi-annual-channel-versions"
+                    aria-labelledby="windows-10-all-supported-semi-annual-channel-versions"></a><span
+                    data-ttu-id="69535-148">Windows 10，所有支持的半年频道版本</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-148">Windows 10, all supported Semi-Annual Channel versions</span></span>
+            </h2>
+            <p><span data-ttu-id="69535-149">有关受支持的版本和服务终止日期的信息，请参阅 <a
+                        href="https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet"
+                        data-linktype="external">Windows 生命周期情况说明书</a>。</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-149">See the <a
+                            href="https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet"
+                            data-linktype="external">Windows lifecycle fact sheet</a> for information about supported
+                        versions and end of service dates.</span></span></p>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 10，所有支持的半年频道版本</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-150">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-150">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-151">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-151">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-152">Windows 10
+                                    专业版</span><span class="sxs-lookup"><span data-stu-id="69535-152">Windows 10
+                                        Pro</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-153">W269N-WFGWX-YVC9B-4J6C9-T83GX</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-153">W269N-WFGWX-YVC9B-4J6C9-T83GX</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-154">Windows 10 专业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-154">Windows 10 Pro
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-155">MH37W-N47XK-V7XM9-C7227-GCQG9</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-155">MH37W-N47XK-V7XM9-C7227-GCQG9</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-156">Windows 10
+                                    专业工作站版</span><span class="sxs-lookup"><span data-stu-id="69535-156">Windows 10 Pro
+                                        for Workstations</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-157">NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-157">NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-158">Windows 10 专业工作站版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-158">Windows 10 Pro for
+                                        Workstations N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-159">9FNHH-K3HBT-3W4TD-6383H-6XYWF</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-159">9FNHH-K3HBT-3W4TD-6383H-6XYWF</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-160">Windows 10
+                                    专业教育版</span><span class="sxs-lookup"><span data-stu-id="69535-160">Windows 10 Pro
+                                        Education</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-161">6TP4R-GNPTD-KYYHQ-7B7DP-J447Y</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-161">6TP4R-GNPTD-KYYHQ-7B7DP-J447Y</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-162">Windows 10 专业教育版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-162">Windows 10 Pro
+                                        Education N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-163">YVWGF-BXNMC-HTQYQ-CPQ99-66QFC</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-163">YVWGF-BXNMC-HTQYQ-CPQ99-66QFC</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-164">Windows 10
+                                    教育版</span><span class="sxs-lookup"><span data-stu-id="69535-164">Windows 10
+                                        Education</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-165">NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-165">NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-166">Windows 10 教育版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-166">Windows 10 Education
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-167">2WH4N-8QGBV-H22JP-CT43Q-MDWWJ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-167">2WH4N-8QGBV-H22JP-CT43Q-MDWWJ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-168">Windows 10
+                                    企业版</span><span class="sxs-lookup"><span data-stu-id="69535-168">Windows 10
+                                        Enterprise</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-169">NPPR9-FWDCX-D2C8J-H872K-2YT43</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-169">NPPR9-FWDCX-D2C8J-H872K-2YT43</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-170">Windows 10 企业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-170">Windows 10 Enterprise
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-171">DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-171">DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-172">Windows 10 企业版
+                                    G</span><span class="sxs-lookup"><span data-stu-id="69535-172">Windows 10 Enterprise
+                                        G</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-173">YYVX9-NTFWV-6MDM3-9PT4T-4M68B</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-173">YYVX9-NTFWV-6MDM3-9PT4T-4M68B</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-174">Windows 10 企业版 G
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-174">Windows 10 Enterprise
+                                        G N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-175">44RPN-FTY23-9VTTB-MP9BX-T84FV</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-175">44RPN-FTY23-9VTTB-MP9BX-T84FV</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+              <hr><h2 id="windows-10-ltscltsb-versions" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-10-ltscltsb-versions" aria-labelledby="windows-10-ltscltsb-versions"></a><span
+                    data-ttu-id="69535-176">Windows 10 LTSC/LTSB 版本</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-176">Windows 10 LTSC/LTSB versions</span></span></h2>
+            <h3 id="windows-10-ltsc-2019" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-10-ltsc-2019" aria-labelledby="windows-10-ltsc-2019"></a><span
+                    data-ttu-id="69535-177">Windows 10 LTSC 2019</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-177">Windows 10 LTSC 2019</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 10 LTSC 2019</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-178">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-178">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-179">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-179">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-180">Windows 10 企业版
+                                    LTSC 2019</span><span class="sxs-lookup"><span data-stu-id="69535-180">Windows 10
+                                        Enterprise LTSC 2019</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-181">M7XTQ-FN8P6-TTKYV-9D4CC-J462D</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-181">M7XTQ-FN8P6-TTKYV-9D4CC-J462D</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-182">Windows 10 企业版 N
+                                    LTSC 2019</span><span class="sxs-lookup"><span data-stu-id="69535-182">Windows 10
+                                        Enterprise N LTSC 2019</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-183">92NFX-8DJQP-P6BBQ-THF9C-7CG2H</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-183">92NFX-8DJQP-P6BBQ-THF9C-7CG2H</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-10-ltsb-2016" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-10-ltsb-2016" aria-labelledby="windows-10-ltsb-2016"></a><span
+                    data-ttu-id="69535-184">Windows 10 LTSB 2016</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-184">Windows 10 LTSB 2016</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 10 LTSB 2016</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-185">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-185">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-186">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-186">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-187">Windows 10 企业版
+                                    LTSB 2016</span><span class="sxs-lookup"><span data-stu-id="69535-187">Windows 10
+                                        Enterprise LTSB 2016</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-188">DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-188">DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-189">Windows 10 企业版 N
+                                    LTSB 2016</span><span class="sxs-lookup"><span data-stu-id="69535-189">Windows 10
+                                        Enterprise N LTSB 2016</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-190">QFFDN-GRT3P-VKWWX-X7T3R-8B639</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-190">QFFDN-GRT3P-VKWWX-X7T3R-8B639</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-10-ltsb-2015" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-10-ltsb-2015" aria-labelledby="windows-10-ltsb-2015"></a><span
+                    data-ttu-id="69535-191">Windows 10 LTSB 2015</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-191">Windows 10 LTSB 2015</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 10 LTSB 2015</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-192">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-192">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-193">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-193">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-194">Windows 10 企业版
+                                    2015 LTSB</span><span class="sxs-lookup"><span data-stu-id="69535-194">Windows 10
+                                        Enterprise 2015 LTSB</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-195">WNMTR-4C88C-JK8YV-HQ7T2-76DF9</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-195">WNMTR-4C88C-JK8YV-HQ7T2-76DF9</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-196">Windows 10 企业版
+                                    2015 LTSB N</span><span class="sxs-lookup"><span data-stu-id="69535-196">Windows 10
+                                        Enterprise 2015 LTSB N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-197">2F77B-TNFGY-69QQF-B8YKP-D69TJ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-197">2F77B-TNFGY-69QQF-B8YKP-D69TJ</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+              <hr><h2 id="earlier-versions-of-windows-server" class="mdui-text-color-theme"><a
+                    class="anchor-link docon docon-link" href="#earlier-versions-of-windows-server"
+                    aria-labelledby="earlier-versions-of-windows-server"></a><span data-ttu-id="69535-198">早期版本的 Windows
+                    Server</span><span class="sxs-lookup"><span data-stu-id="69535-198">Earlier versions of Windows
+                        Server</span></span></h2>
+            <h3 id="windows-server-version-1803" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-version-1803" aria-labelledby="windows-server-version-1803"></a><span
+                    data-ttu-id="69535-199">Windows Server 版本 1803</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-199">Windows Server, version 1803</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 版本 1803</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-200">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-200">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-201">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-201">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-202">Windows Server
+                                    Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-202">Windows
+                                        Server Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-203">2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-203">2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-204">Windows Server
+                                    Standard</span><span class="sxs-lookup"><span data-stu-id="69535-204">Windows Server
+                                        Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-205">PTXN8-JFHJM-4WC78-MPCBR-9W4KR</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-205">PTXN8-JFHJM-4WC78-MPCBR-9W4KR</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-server-version-1709" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-version-1709" aria-labelledby="windows-server-version-1709"></a><span
+                    data-ttu-id="69535-206">Windows Server 版本 1709</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-206">Windows Server, version 1709</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 版本 1709</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-207">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-207">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-208">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-208">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-209">Windows Server
+                                    Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-209">Windows
+                                        Server Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-210">6Y6KB-N82V8-D8CQV-23MJW-BWTG6</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-210">6Y6KB-N82V8-D8CQV-23MJW-BWTG6</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-211">Windows Server
+                                    Standard</span><span class="sxs-lookup"><span data-stu-id="69535-211">Windows Server
+                                        Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-212">DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-212">DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-server-2012-r2" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-2012-r2" aria-labelledby="windows-server-2012-r2"></a><span
+                    data-ttu-id="69535-213">Windows Server 2012 R2</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-213">Windows Server 2012 R2</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 2012 R2</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-214">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-214">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-215">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-215">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-216">Windows Server
+                                    2012 R2 Server Standard</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-216">Windows Server 2012 R2 Server Standard</span></span>
+                            </td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-217">D2N9P-3P6X9-2R39C-7RTCD-MDVJX</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-217">D2N9P-3P6X9-2R39C-7RTCD-MDVJX</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-218">Windows Server
+                                    2012 R2 Datacenter</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-218">Windows Server 2012 R2 Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-219">W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-219">W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-220">Windows Server
+                                    2012 R2 Essentials</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-220">Windows Server 2012 R2 Essentials</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-221">KNC87-3J2TX-XB4WP-VCPJV-M4FWM</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-221">KNC87-3J2TX-XB4WP-VCPJV-M4FWM</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-server-2012" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-2012" aria-labelledby="windows-server-2012"></a><span
+                    data-ttu-id="69535-222">Windows Server 2012</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-222">Windows Server 2012</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 2012</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-223">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-223">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-224">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-224">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-225">Windows Server
+                                    2012</span><span class="sxs-lookup"><span data-stu-id="69535-225">Windows Server
+                                        2012</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-226">BN3D2-R7TKB-3YPBD-8DRP2-27GG4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-226">BN3D2-R7TKB-3YPBD-8DRP2-27GG4</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-227">Windows Server
+                                    2012 N</span><span class="sxs-lookup"><span data-stu-id="69535-227">Windows Server
+                                        2012 N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-228">8N2M2-HWPGY-7PGT9-HGDD8-GVGGY</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-228">8N2M2-HWPGY-7PGT9-HGDD8-GVGGY</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-229">Windows Server
+                                    2012 单语言版</span><span class="sxs-lookup"><span data-stu-id="69535-229">Windows
+                                        Server 2012 Single Language</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-230">2WN2H-YGCQR-KFX6K-CD6TF-84YXQ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-230">2WN2H-YGCQR-KFX6K-CD6TF-84YXQ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-231">Windows Server
+                                    2012 特定国家/地区版</span><span class="sxs-lookup"><span data-stu-id="69535-231">Windows
+                                        Server 2012 Country Specific</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-232">4K36P-JN4VD-GDC6V-KDT89-DYFKP</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-232">4K36P-JN4VD-GDC6V-KDT89-DYFKP</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-233">Windows Server
+                                    2012 Server 标准版</span><span class="sxs-lookup"><span data-stu-id="69535-233">Windows
+                                        Server 2012 Server Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-234">XC9B7-NBPP2-83J2H-RHMBY-92BT4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-234">XC9B7-NBPP2-83J2H-RHMBY-92BT4</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-235">Windows Server
+                                    2012 MultiPoint 标准版</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-235">Windows Server 2012 MultiPoint Standard</span></span>
+                            </td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-236">HM7DN-YVMH3-46JC3-XYTG7-CYQJJ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-236">HM7DN-YVMH3-46JC3-XYTG7-CYQJJ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-237">Windows Server
+                                    2012 MultiPoint 高级版</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-237">Windows Server 2012 MultiPoint Premium</span></span>
+                            </td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-238">XNH6W-2V9GX-RGJ4K-Y8X6F-QGJ2G</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-238">XNH6W-2V9GX-RGJ4K-Y8X6F-QGJ2G</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-239">Windows Server
+                                    2012 Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-239">Windows
+                                        Server 2012 Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-240">48HP8-DN98B-MYWDG-T2DCC-8W83P</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-240">48HP8-DN98B-MYWDG-T2DCC-8W83P</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-server-2008-r2" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-2008-r2" aria-labelledby="windows-server-2008-r2"></a><span
+                    data-ttu-id="69535-241">Windows Server 2008 R2</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-241">Windows Server 2008 R2</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows Server 2008 R2</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-242">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-242">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-243">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-243">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-244">Windows Server
+                                    2008 R2 Web 版</span><span class="sxs-lookup"><span data-stu-id="69535-244">Windows
+                                        Server 2008 R2 Web</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-245">6TPJF-RBVHG-WBW2R-86QPH-6RTM4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-245">6TPJF-RBVHG-WBW2R-86QPH-6RTM4</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-246">Windows Server
+                                    2008 R2 HPC 版</span><span class="sxs-lookup"><span data-stu-id="69535-246">Windows
+                                        Server 2008 R2 HPC edition</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-247">TT8MH-CG224-D3D7Q-498W2-9QCTX</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-247">TT8MH-CG224-D3D7Q-498W2-9QCTX</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-248">Windows Server
+                                    2008 R2 标准版</span><span class="sxs-lookup"><span data-stu-id="69535-248">Windows
+                                        Server 2008 R2 Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-249">YC6KT-GKW9T-YTKYR-T4X34-R7VHC</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-249">YC6KT-GKW9T-YTKYR-T4X34-R7VHC</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-250">Windows Server
+                                    2008 R2 企业版</span><span class="sxs-lookup"><span data-stu-id="69535-250">Windows
+                                        Server 2008 R2 Enterprise</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-251">489J6-VHDMP-X63PK-3K798-CPX3Y</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-251">489J6-VHDMP-X63PK-3K798-CPX3Y</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-252">Windows Server
+                                    2008 R2 Datacenter</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-252">Windows Server 2008 R2 Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-253">74YFP-3QFB3-KQT8W-PMXWJ-7M648</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-253">74YFP-3QFB3-KQT8W-PMXWJ-7M648</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-254">面向基于 Itanium 系统的
+                                    Windows Server 2008 R2</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-254">Windows Server 2008 R2 for Itanium-based
+                                        Systems</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-255">GT63C-RJFQ3-4GMB6-BRFB9-CB83V</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-255">GT63C-RJFQ3-4GMB6-BRFB9-CB83V</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-server-2008" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#windows-server-2008" aria-labelledby="windows-server-2008"></a><span
+                    data-ttu-id="69535-256">Windows 2008 Server</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-256">Windows Server 2008</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 2008 Server</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-257">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-257">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-258">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-258">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-259">Windows Web
+                                    Server 2008</span><span class="sxs-lookup"><span data-stu-id="69535-259">Windows Web
+                                        Server 2008</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-260">WYR28-R7TFJ-3X2YQ-YCY4H-M249D</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-260">WYR28-R7TFJ-3X2YQ-YCY4H-M249D</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-261">Windows Server
+                                    2008 标准版</span><span class="sxs-lookup"><span data-stu-id="69535-261">Windows Server
+                                        2008 Standard</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-262">TM24T-X9RMF-VWXK6-X8JC9-BFGM2</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-262">TM24T-X9RMF-VWXK6-X8JC9-BFGM2</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-263">不带 Hyper-V 的
+                                    Windows Server 2008 标准版</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-263">Windows Server 2008 Standard without
+                                        Hyper-V</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-264">W7VD6-7JFBR-RX26B-YKQ3Y-6FFFJ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-264">W7VD6-7JFBR-RX26B-YKQ3Y-6FFFJ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-265">Windows Server
+                                    2008 企业版</span><span class="sxs-lookup"><span data-stu-id="69535-265">Windows Server
+                                        2008 Enterprise</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-266">YQGMW-MPWTJ-34KDK-48M3W-X4Q6V</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-266">YQGMW-MPWTJ-34KDK-48M3W-X4Q6V</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-267">不带 Hyper-V 的
+                                    Windows Server 2008 企业版</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-267">Windows Server 2008 Enterprise without
+                                        Hyper-V</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-268">39BXF-X8Q23-P2WWT-38T2F-G3FPG</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-268">39BXF-X8Q23-P2WWT-38T2F-G3FPG</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-269">Windows Server
+                                    2008 HPC</span><span class="sxs-lookup"><span data-stu-id="69535-269">Windows Server
+                                        2008 HPC</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-270">RCTX3-KWVHP-BR6TB-RB6DM-6X7HP</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-270">RCTX3-KWVHP-BR6TB-RB6DM-6X7HP</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-271">Windows Server
+                                    2008 Datacenter</span><span class="sxs-lookup"><span data-stu-id="69535-271">Windows
+                                        Server 2008 Datacenter</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-272">7M67G-PC374-GR742-YH8V4-TCBY3</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-272">7M67G-PC374-GR742-YH8V4-TCBY3</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-273">不带 Hyper-V 的
+                                    Windows Server 2008 数据中心版</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-273">Windows Server 2008 Datacenter without
+                                        Hyper-V</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-274">22XQ2-VRXRG-P8D42-K34TD-G3QQC</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-274">22XQ2-VRXRG-P8D42-K34TD-G3QQC</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-275">面向基于 Itanium 系统的
+                                    Windows Server 2008</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-275">Windows Server 2008 for Itanium-Based
+                                        Systems</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-276">4DWFP-JF3DJ-B7DTH-78FJB-PDRHK</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-276">4DWFP-JF3DJ-B7DTH-78FJB-PDRHK</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+              <hr><h2 id="earlier-versions-of-windows" class="mdui-text-color-theme"><a class="anchor-link docon docon-link"
+                    href="#earlier-versions-of-windows" aria-labelledby="earlier-versions-of-windows"></a><span
+                    data-ttu-id="69535-277">早期版本的 Windows</span><span class="sxs-lookup"><span
+                        data-stu-id="69535-277">Earlier versions of Windows</span></span></h2>
+            <h3 id="windows-81" class="mdui-text-color-theme"><a class="anchor-link docon docon-link" href="#windows-81"
+                    aria-labelledby="windows-81"></a><span data-ttu-id="69535-278">Windows 8.1</span><span
+                    class="sxs-lookup"><span data-stu-id="69535-278">Windows 8.1</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 8.1</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-279">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-279">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-280">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-280">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-281">Windows 8.1
+                                    专业版</span><span class="sxs-lookup"><span data-stu-id="69535-281">Windows 8.1
+                                        Pro</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-282">GCRJD-8NW9H-F2CDX-CCM8D-9D6T9</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-282">GCRJD-8NW9H-F2CDX-CCM8D-9D6T9</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-283">Windows 8.1 专业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-283">Windows 8.1 Pro
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-284">HMCNV-VVBFX-7HMBH-CTY9B-B4FXY</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-284">HMCNV-VVBFX-7HMBH-CTY9B-B4FXY</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-285">Windows 8.1
+                                    企业版</span><span class="sxs-lookup"><span data-stu-id="69535-285">Windows 8.1
+                                        Enterprise</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-286">MHF9N-XY6XB-WVXMC-BTDCT-MKKG7</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-286">MHF9N-XY6XB-WVXMC-BTDCT-MKKG7</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-287">Windows 8.1 企业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-287">Windows 8.1
+                                        Enterprise N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-288">TT4HM-HN7YT-62K67-RGRQJ-JFFXW</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-288">TT4HM-HN7YT-62K67-RGRQJ-JFFXW</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-8" class="mdui-text-color-theme"><a class="anchor-link docon docon-link" href="#windows-8"
+                    aria-labelledby="windows-8"></a><span data-ttu-id="69535-289">Windows 8</span><span
+                    class="sxs-lookup"><span data-stu-id="69535-289">Windows 8</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 8</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-290">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-290">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-291">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-291">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-292">Windows 8
+                                    专业版</span><span class="sxs-lookup"><span data-stu-id="69535-292">Windows 8
+                                        Pro</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-293">NG4HW-VH26C-733KW-K6F98-J8CK4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-293">NG4HW-VH26C-733KW-K6F98-J8CK4</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-294">Windows 8 专业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-294">Windows 8 Pro
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-295">XCVCF-2NXM9-723PB-MHCB7-2RYQQ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-295">XCVCF-2NXM9-723PB-MHCB7-2RYQQ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-296">Windows 8
+                                    企业版</span><span class="sxs-lookup"><span data-stu-id="69535-296">Windows 8
+                                        Enterprise</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-297">32JNW-9KQ84-P47T8-D8GGY-CWCK7</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-297">32JNW-9KQ84-P47T8-D8GGY-CWCK7</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-298">Windows 8 企业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-298">Windows 8 Enterprise
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-299">JMNMF-RHW7P-DMY6X-RF3DR-X2BQT</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-299">JMNMF-RHW7P-DMY6X-RF3DR-X2BQT</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 id="windows-7" class="mdui-text-color-theme"><a class="anchor-link docon docon-link" href="#windows-7"
+                    aria-labelledby="windows-7"></a><span data-ttu-id="69535-300">Windows 7</span><span
+                    class="sxs-lookup"><span data-stu-id="69535-300">Windows 7</span></span></h3>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <caption class="visually-hidden">Windows 7</caption>
+                    <thead>
+                        <tr>
+                            <th><span data-ttu-id="69535-301">操作系统版本</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-301">Operating system edition</span></span></th>
+                            <th><span data-ttu-id="69535-302">KMS 客户端安装程序密钥</span><span class="sxs-lookup"><span
+                                        data-stu-id="69535-302">KMS Client Setup Key</span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-303">Windows 7
+                                    专业版</span><span class="sxs-lookup"><span data-stu-id="69535-303">Windows 7
+                                        Professional</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-304">FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-304">FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-305">Windows 7 专业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-305">Windows 7
+                                        Professional N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-306">MRPKT-YTG23-K7D7T-X2JMM-QY7MG</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-306">MRPKT-YTG23-K7D7T-X2JMM-QY7MG</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-307">Windows 7 专业版
+                                    E</span><span class="sxs-lookup"><span data-stu-id="69535-307">Windows 7
+                                        Professional E</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-308">W82YF-2Q76Y-63HXB-FGJG9-GF7QX</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-308">W82YF-2Q76Y-63HXB-FGJG9-GF7QX</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-309">Windows 7
+                                    企业版</span><span class="sxs-lookup"><span data-stu-id="69535-309">Windows 7
+                                        Enterprise</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-310">33PXH-7Y6KF-2VJC9-XBBR8-HVTHH</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-310">33PXH-7Y6KF-2VJC9-XBBR8-HVTHH</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-311">Windows 7 企业版
+                                    N</span><span class="sxs-lookup"><span data-stu-id="69535-311">Windows 7 Enterprise
+                                        N</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-312">YDRBP-3D83W-TY26F-D46B2-XCKRJ</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-312">YDRBP-3D83W-TY26F-D46B2-XCKRJ</span></span></td>
+                        </tr>
+                        <tr>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span data-ttu-id="69535-313">Windows 7 企业版
+                                    E</span><span class="sxs-lookup"><span data-stu-id="69535-313">Windows 7 Enterprise
+                                        E</span></span></td>
+                            <td mdui-tooltip="{content:'点击单元格获取对应激活脚本'}"><span
+                                    data-ttu-id="69535-314">C29WB-22CC8-VJ326-GHFJW-H9DH4</span><span
+                                    class="sxs-lookup"><span
+                                        data-stu-id="69535-314">C29WB-22CC8-VJ326-GHFJW-H9DH4</span></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- </content> -->
+
+        </div></div>
+
+        <div class="mdui-container mdui-typo">
+            <hr>
+            <div style="text-align: center;padding-top: 5px;padding-bottom: 50px;color: rgba(147,147,147,1.00)">
+                © 2020 ShevonKuan</div>
+        </div>
+    </div>
+    <div class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+        <button class="mdui-fab mdui-ripple mdui-color-theme" mdui-tooltip="{content: '联系我', position: 'left'}">
+            <i class="mdui-icon material-icons">chat</i>
+            <i class="mdui-icon mdui-fab-opened material-icons">chat_bubble_outline</i>
+        </button>
+        <div class="mdui-fab-dial">
+            <a class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue"
+                mdui-tooltip="{content: '在telegram添加我为好友', position: 'left'}" href="https://t.me/shevonkuan"><i
+                    class="mdui-icon ion-paper-airplane mdui-text-color-white"></i></a>
+            <a class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue"
+                mdui-tooltip="{content: '访问我的twitter', position: 'left'}" href="https://twitter.com/shevon_kuan"><i
+                    class="mdui-icon mdui-text-color-white ion-social-twitter-outline"></i></a>
+            <a class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue"
+                mdui-tooltip="{content: '向我发邮件', position: 'left'}"
+                href="mailto:331749486@qq.com?subject=[来源于网站的联系]在此处填写标题&body=有什么可以帮到您?"><i
+                    class="mdui-icon mdui-text-color-white material-icons">mail_outline</i></a>
+        </div>
+    </div>
+    <script src="js/mdui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script>
+        var clipboard;
+        clipboard = new Clipboard('.copy');
+        clipboard.on('success', function (e) {
+            mdui.snackbar({
+                message: '复制成功'
+            });
+            e.clearSelection();
+        });
+        clipboard.on('error', function (e) {
+            mdui.snackbar({
+                message: '复制失败请手动复制'
+            });
+        });
+    </script>
+    <script>
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        $("tbody").on("click", "tr", function () {
+            var series = $(this).find("td").eq(1).text().slice(0, 29);
+            var version = $(this).find("span").eq(0).text().replace(/\s*/g, "");
+            var code = 'slmgr.vbs /upk\\nslmgr /ipk ' + series + '\\nslmgr /skms [domain of kms]\\nslmgr /ato\\nslmgr.vbs -xpr'
+            console.log('弹出下载提示框');
+            console.log('版本' + version);
+            console.log('序列号' + series); //获取序列号
+            console.log(code);
+            mdui.dialog({
+                title: '<small>' + version + '  激活脚本</small>',
+                content:
+                    '<div class="mdui-typo">' +
+                    '<div class="mdui-m-t-2 mdui-m-b-1">' +
+                    '<label class="mdui-text-color-black-secondary">批量激活序列号：'+'</label>' +
+                    '<code class="js-icon-code-copy copy" data-clipboard-text=series mdui-tooltip="{content: \'点击复制序列号\'}">' +series+
+                    '</code>' +
+                    '</div>' +
+                    '<div class="mdui-m-t-3 mdui-m-b-1">' +
+                    '<label class="mdui-text-color-black-secondary">激活代码：</label>' +
+                    '<pre>'+
+                    '<code class="hljs coffeescript">'+'slmgr.vbs /upk // 卸载已有密钥'+'</code>' +
+                    '<code class="hljs coffeescript">'+'slmgr.vbs /ipk '+series+' // 安装新密钥</code>' +'<code class="hljs coffeescript">'+'slmgr /skms [domain of kms] // 更改kms激活服务器'+'</code>' +'<code class="hljs coffeescript">'+'slmgr /ato //激活密钥'+'</code>' +'<code class="hljs coffeescript">'+'slmgr.vbs -xpr //验证激活'+'</code>'+'</pre>'+ '<label class="mdui-text-color-black-secondary">注意：</label>' +
+                    '点击以下按钮下载激活脚本,<code>下载激活脚本</code>按钮可能会因为系统安全策略而导致下载失败或无法运行,请信任该脚本或选择<code>下载激活代码</code>按钮,并将下载下来的<code>txt</code>文件后缀改为<code>bat</code>.'+
+                       '<div class="mdui-dialog-actions">'+'<button class="mdui-btn mdui-ripple" onclick="download(\''+
+                    version+
+                    "激活脚本.bat\'"+',\''+code+'\')">下载激活脚本</button>'+'<button class="mdui-btn mdui-ripple" onclick="download(\''+
+                    version+
+                    "激活脚本.txt\'"+',\''+code+'\')">下载激活代码</button>'+
+      '<button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>'+
+             
+                            '</div>' +
+                            '</div>',
+            })
+        });
+
+    </script>
+    <canvas id="canvasarea21" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;">
+    </canvas>
+</body>
+
+</html>
